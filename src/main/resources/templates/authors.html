@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/xhtml">>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Author</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/layout.css">
 </head>
 
 <header>
     <div class="indexBody">
         <div class="nav__icon">
-            <a href="/index">Home</a>
-            <a href="/category">Categories</a>
-            <a href="/post">Post</a>
-            <a href="/tags">HashTags</a>
+            <a href="/">Home</a>
+            <a href="/category/all-categories">Categories</a>
+            <a href="/post/all-posts">Post</a>
+            <a href="/tag/all-tags">HashTags</a>
 
         </div>
     </div>
@@ -26,7 +28,7 @@
     <div class="container__body__info">
         <h1>Authors</h1>
         <div th:each="author: ${authors}" th:remove="tag">
-            <a th:text="${author.id}" th:href="'/author/' + ${author.id}"></a>
+            <a th:text="${author.name}" th:href="'/author/' + ${author.id}"></a>
         </div>
 
         <form action="/author/add" method="post">

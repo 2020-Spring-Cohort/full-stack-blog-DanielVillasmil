@@ -3,21 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${author.id}">Authors</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/layout.css">
 </head>
 
 <header>
-    <div class="indexBody">
         <div class="nav__icon">
-            <a href="/index">Home</a>
-            <a href="/category">Categories</a>
-            <a href="/post">Post</a>
-            <a href="/tags">HashTags</a>
-
+            <a href="/">Home</a>
+            <a href="/category/all-categories">Categories</a>
+            <a href="/post/all-posts">Post</a>
+            <a href="/tag/all-tags">HashTags</a>
         </div>
-    </div>
 </header>
-
-
 
 
 
@@ -26,7 +23,7 @@
     <div class="container__body">
         <div class="container__body__info">
             <h1>Author</h1>
-            <h2 th:text="${author.id}">Authors</h2> <br>
+            <h2 th:text="${author.name}">Authors</h2> <br>
             <h3 th:each="post: ${author.posts}">
                 <a th:text="${post.title}" th:href="@{'/post/' +${post.id}}">Post</a>
             </h3>

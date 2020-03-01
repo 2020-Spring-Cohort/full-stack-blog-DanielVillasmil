@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${post.title}">Post</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/layout.css">
 </head>
 
 
 <header class="container__header">
     <a href="/">Home</a>
-    <a href="/category/all-categories">Add a Category</a>
-    <a href="/tag/allTags">Add a Tag</a>
+    <a href="/author/all-authors">Author</a>
+    <a href="/category/all-categories">Categories</a>
+    <a href="/tag/all-tags">HashTags</a>
 </header>
 
 
@@ -31,14 +34,14 @@
     </div>
 
     <div th:each="author: ${post.author}" th:remove="tag">
-        <p><a th:text="${author.}" th:href="@{'/author/' + ${author.name}}">Author</a></p>
+        <p><a th:text="${author.name}" th:href="@{'/author/' + ${author.name}}">Author</a></p>
     </div>
 
-    <div th:each="category: ${post.categories}" th:remove="tag">
+    <div th:each="category: ${post.category}" th:remove="tag">
         <p><a th:text="${category.name}" th:href="@{'/category/' + ${category.name}}">Category</a></p>
     </div>
 
-    <div th:each="tag: ${post.tags}" th:remove="tag">
+    <div th:each="tag: ${post.tag}" th:remove="tag">
         <p><a th:text="${tag.name}" th:href="@{'/tag/' + ${tag.id}}">Tags</a></p>
     </div>
 
