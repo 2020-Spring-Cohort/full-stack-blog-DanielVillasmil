@@ -8,11 +8,10 @@ public class Category {
 
     @Id
     @GeneratedValue
-    private String name;
     private Long id;
-
     @OneToMany(mappedBy = "category")
     private Collection<Post> posts;
+    private String name;
 
 
     public Category(String name){

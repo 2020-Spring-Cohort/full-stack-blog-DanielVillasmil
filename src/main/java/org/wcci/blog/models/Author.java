@@ -7,10 +7,11 @@ import java.util.Collection;
 public class Author {
     @Id
     @GeneratedValue
-    private String name;
     private Long id;
     @OneToMany(mappedBy = "author")
     private Collection<Post> posts;
+
+    private String name;
 
 
     public Author(){}

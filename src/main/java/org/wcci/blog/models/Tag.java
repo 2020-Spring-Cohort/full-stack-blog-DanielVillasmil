@@ -11,10 +11,10 @@ import java.util.Collection;
 public class Tag {
     @Id
     @GeneratedValue
-    private String name;
     private Long id;
     @ManyToMany
     private Collection<Post> posts;
+    private String name;
 
 
     public Tag(String name, Post... posts){

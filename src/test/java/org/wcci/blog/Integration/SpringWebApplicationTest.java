@@ -31,11 +31,11 @@ public class SpringWebApplicationTest {
         mockMvc.perform(get("/author/all-authors"))
                 .andDo(print()).andExpect(status().isOk());
     }
-    @Test
-    public void shouldReceiveOkFromPostsEndPoint() throws Exception {
-        mockMvc.perform(get("/post/all-posts"))
-                .andDo(print()).andExpect(status().isOk());
-    }
+//    @Test
+//    public void shouldReceiveOkFromPostsEndPoint() throws Exception {
+//        mockMvc.perform(get("/post/all-posts"))
+//                .andDo(print()).andExpect(status().isOk());
+//    }
     @Test
     public void shouldReceiveOkFromTagEndPoint() throws Exception {
         mockMvc.perform(get("/tag/all-tags"))
