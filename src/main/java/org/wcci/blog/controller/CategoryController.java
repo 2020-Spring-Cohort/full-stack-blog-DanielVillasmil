@@ -22,10 +22,10 @@ public class CategoryController {
         model.addAttribute("category", retrievedCategory);
        return "category";
     }
-    @PostMapping("/add-categories")
+    @PostMapping("add")
     public String addCategory(@RequestParam String name){
        categoryStorage.store(new Category(name));
-       return "redirect:category/all-categories";
+       return "redirect:/category/all-categories";
     }
     @GetMapping("all-categories")
     public String viewAllCategories(Model model){

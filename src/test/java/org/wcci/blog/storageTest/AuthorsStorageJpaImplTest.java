@@ -3,7 +3,7 @@ package org.wcci.blog.storageTest;
 import org.junit.jupiter.api.Test;
 import org.wcci.blog.models.Author;
 import org.wcci.blog.storage.AuthorStorage;
-import org.wcci.blog.storage.AuthorsStorageJpaImpl;
+import org.wcci.blog.storage.AuthorStorageJpaImpl;
 import org.wcci.blog.storage.Repositories.AuthorRepo;
 
 import java.util.Collections;
@@ -17,7 +17,7 @@ public class AuthorsStorageJpaImplTest {
     @Test
     public void shouldStoreAuthor(){
         AuthorRepo authorRepo = mock(AuthorRepo.class);
-        AuthorStorage underTest = new AuthorsStorageJpaImpl(authorRepo);
+        AuthorStorage underTest = new AuthorStorageJpaImpl(authorRepo);
         Author testAuthor = new Author("test test");
         when(authorRepo.findAll()).thenReturn(Collections.singleton(testAuthor));
         underTest.store(testAuthor);
@@ -29,7 +29,7 @@ public class AuthorsStorageJpaImplTest {
         AuthorRepo mockRepo = mock(AuthorRepo.class);
         Author testAuthor1 = new Author("Kenobi");
         Author testAuthor2 = new Author("Yoda");
-        AuthorStorage underTest = new AuthorsStorageJpaImpl(mockRepo);
+        AuthorStorage underTest = new AuthorStorageJpaImpl(mockRepo);
         underTest.store(testAuthor1);
         underTest.store(testAuthor2);
         Optional<Author> testAuthor1Optional = Optional.of(testAuthor1);

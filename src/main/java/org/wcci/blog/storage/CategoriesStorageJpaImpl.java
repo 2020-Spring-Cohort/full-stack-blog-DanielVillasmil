@@ -16,6 +16,11 @@ import java.util.Collection;
         }
 
         @Override
+        public void store(Category category) {
+            categoryRepository.save(category);
+        }
+
+        @Override
         public Collection<Category> getAll(){
             return (Collection<Category>) categoryRepository.findAll();
         }
@@ -26,12 +31,7 @@ import java.util.Collection;
         }
 
         @Override
-        public void store(Category category) {
-            categoryRepository.save(category);
-        }
-
-        @Override
-        public Category findCategoryByName(String categoryName){
-            return categoryRepository.findCategoryByName(categoryName).get();
+        public Category findCategoryByName(String name){
+            return categoryRepository.findByName(name).get();
         }
     }

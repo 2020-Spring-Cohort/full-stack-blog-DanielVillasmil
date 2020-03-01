@@ -17,7 +17,7 @@ public class TagsController {
         this.tagStorage = tagStorage;
     }
 
-    @GetMapping("/{tagId")
+    @GetMapping("/{tagId}")
     public String displaySingleTag(@PathVariable long tagId, Model model){
         Tag retrievedTag = tagStorage.findTagById(tagId);
         model.addAttribute("tag", retrievedTag);
@@ -28,7 +28,7 @@ public class TagsController {
         tagStorage.add(new Tag(tagName));
         return "redirect:/tag/all-tags";
     }
-    @GetMapping("allTags")
+    @GetMapping("all-tags")
     public String viewAllTags(Model model){
         model.addAttribute("tags", tagStorage.getAll());
         return "tags";

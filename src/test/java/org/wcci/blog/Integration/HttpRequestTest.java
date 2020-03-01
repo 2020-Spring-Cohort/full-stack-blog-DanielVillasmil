@@ -32,11 +32,13 @@ public class HttpRequestTest {
                 "http://localhost:" + port + "/author/all-authors", String.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
+    @Test
     public void postsEndPointReturnOk(){
         ResponseEntity<String> response = testRestTemplate.getForEntity(
                 "http://localhost:" + port + "/post/all-posts", String.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
+    @Test
     public void tagsEndPointReturnOk(){
         ResponseEntity<String> response = testRestTemplate.getForEntity(
                 "http://localhost:" + port + "/tag/all-tags", String.class);

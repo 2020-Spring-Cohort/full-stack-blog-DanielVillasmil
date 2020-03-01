@@ -7,7 +7,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
 import org.wcci.blog.controller.CategoryController;
 import org.wcci.blog.models.Category;
-import org.wcci.blog.storage.CategoriesStorageJpaImpl;
 import org.wcci.blog.storage.CategoryStorage;
 
 import java.util.Collections;
@@ -59,7 +58,7 @@ public class CategoryControllerTest {
 
         List<Category> categoryList = Collections.singletonList(testCategory);
         when(mockStorage.getAll()).thenReturn(categoryList);
-        mockMvc.perform(get("category/all-categories"))
+        mockMvc.perform(get("/category/all-categories"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(view().name("categories"))
@@ -68,9 +67,10 @@ public class CategoryControllerTest {
     }
     @Test
     public void addCategoryShouldRedirect() throws Exception{
-        mockMvc.perform(post("/category/add/").param("categoryName", "test"))
-                .andDo(print()).andExpect(status().is3xxRedirection());
-        verify(mockStorage).store(new Category("testTaco"));
+        mockMvc.perform(post("/category/add/").param("name", "testTacos"))
+                .andDo(print())
+                .andExpect(status().is3xxRedirection());
+        verify(mockStorage).store(new Category("testTacos"));
     }
 
 }

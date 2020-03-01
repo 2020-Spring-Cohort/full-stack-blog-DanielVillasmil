@@ -43,8 +43,8 @@ public class Post {
         this.title = title;
         this.body = body;
     }
-    public Post(String authors, String category, String postTitle, String postBody) {
-        this.author = new Author(authors);
+    public Post(String author, String category, String postTitle, String postBody) {
+        this.author = new Author(author);
         this.category = new Category(category);
         this.title = postTitle;
         this.body = postBody;
@@ -54,57 +54,43 @@ public class Post {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+
 
     public String getBody() {
         return body;
     }
 
-    public void setBody(String body) {
-        this.body = body;
-    }
+
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+
 
     public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
+
 
     public String getDatePublished() {
         return datePublished;
     }
 
-    public void setDatePublished(String datePublished) {
-        this.datePublished = datePublished;
-    }
+
 
     public Category getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
+
 
     public Collection<Tag> getTag() {
         return tag;
     }
 
-    public void setTag(Collection<Tag> tag) {
-        this.tag = tag;
-    }
+
 
     @Override
     public boolean equals(Object o) {

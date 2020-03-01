@@ -23,6 +23,7 @@ public class AuthorController {
         model.addAttribute("author", retrievedAuthor);
         return "author";
     }
+
     @PostMapping("add")
     public String addAuthorForm(@RequestParam String authorName){
         authorStorage.store(new Author(authorName));
@@ -32,11 +33,5 @@ public class AuthorController {
     public String viewAllAuthors(Model model){
         model.addAttribute("authors", authorStorage.getAll());
         return "authors";
-    }
-    @GetMapping("/{authorId}")
-    public String displayAuthorFromPostPage(@PathVariable long authorId, Model model) {
-        Author retrievedAuthor = authorStorage.findAuthorById(authorId);
-        model.addAttribute("author", retrievedAuthor);
-        return "author";
     }
 }

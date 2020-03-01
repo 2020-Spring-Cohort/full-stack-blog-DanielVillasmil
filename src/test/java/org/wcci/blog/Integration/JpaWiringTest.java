@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.annotation.DirtiesContext;
 import org.wcci.blog.models.Author;
 import org.wcci.blog.models.Category;
@@ -41,7 +39,7 @@ public class JpaWiringTest {
     public void authorShouldListOfAllPosts(){
         Author testAuthor = new Author("Name");
         Category testCategory = new Category("softShell");
-        Post testPost = new Post("Barbacoa", "This is nasty!");
+        Post testPost = new Post(testAuthor, testCategory,"Barbacoa", "This is nasty!");
 
         authorRepo.save(testAuthor);
         categoryRepository.save(testCategory);
@@ -52,9 +50,10 @@ public class JpaWiringTest {
 
         Optional<Author> retrievedAuthorsOptional = authorRepo.findById(testAuthor.getId());
         Author retrievedAuthor = retrievedAuthorsOptional.get();
-        Post retrievePost = postRepo.findById(testPost.getId()).get();
+        Post retrievePost = postRepo.findPostById(testPost.getId()).get();
 
-        assertThat(retrievedAuthor.getPosts()).contains();
+        assertThat(retrievedAuthor.getPosts()).contains(testPost);
+
     }
 
     @Test
@@ -62,6 +61,7 @@ public class JpaWiringTest {
         Category testCategory = new Category("HardShell");
         Author testAuthor = new Author("Obi Wan Kenobi");
         Post testPost = new Post(testAuthor, testCategory, "title", "body");
+
         authorRepo.save(testAuthor);
         categoryRepository.save(testCategory);
         postRepo.save(testPost);
@@ -74,7 +74,6 @@ public class JpaWiringTest {
         Author retrievedAuthor = retrievedAuthorOptional.get();
         Category retrievedCategory = retrievedCategoryOptional.get();
         Post retrievedPost = postRepo.findById(testPost.getId()).get();
-
         assertThat(retrievedCategory.getPosts()).contains(testPost);
     }
     @Test

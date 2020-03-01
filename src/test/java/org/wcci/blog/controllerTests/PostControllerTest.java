@@ -51,15 +51,15 @@ public class PostControllerTest {
     @Test
     public void displayPostReturnPostTemplate(){
         String result = underTest.displayPost(1L, model);
-        assertThat(result).isEqualTo("postPage");
+        assertThat(result).isEqualTo("post");
     }
 
     @Test
     public void displayPostMappingIsCorrect() throws Exception{
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(underTest).build();
-        mockMvc.perform(MockMvcRequestBuilders.get("/posts/single-post/1"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/post/single-post/1"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("postPage"))
+                .andExpect(view().name("post"))
                 .andExpect(model().attributeExists("post"))
                 .andExpect(model().attribute("post", testPost));
 

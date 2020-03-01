@@ -25,7 +25,7 @@ public class PostController {
     }
 
     @PostMapping("add")
-    public String AddPostForm(@RequestParam("authors") String author, @RequestParam("category") String category, @RequestParam("postTitle") String postTitle, @RequestParam("PostBody") String postBody) {
+    public String AddPostForm(@RequestParam("author") String author, @RequestParam("category") String category, @RequestParam("postTitle") String postTitle, @RequestParam("PostBody") String postBody) {
     postStorage.store(new Post(author, category, postTitle, postBody));
     return "redirect:/post/all-posts";
 
@@ -33,7 +33,7 @@ public class PostController {
     @RequestMapping("/single-post/{id}")
     public String displayPost(@PathVariable Long id, Model model){
         Post retrievePost = postStorage.findPostById(id);
-        model.addAttribute("Post", retrievePost);
+        model.addAttribute("post", retrievePost);
         return "post";
     }
     @GetMapping("all-posts")
@@ -46,7 +46,7 @@ public class PostController {
 
     }
     @GetMapping("/{id}")
-    public String displayPostFromAuthorPage(long id, Model model) {
+    public String displayPostFromAuthorPage(@PathVariable Long id, Model model) {
         Post retrievedPost = postStorage.findPostById(id);
         model.addAttribute("post",retrievedPost);
         model.addAttribute("tags",tagStorage.getAll());

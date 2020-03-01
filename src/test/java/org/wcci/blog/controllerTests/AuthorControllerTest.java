@@ -38,16 +38,14 @@ public class AuthorControllerTest {
     public void shouldReturnViewWithOneAuthor() {
         Author testAuthor = new Author("authors");
         when(mockStorage.findAuthorById(1)).thenReturn(testAuthor);
-
-        underTest.displayAuthorFromPostPage(1, mockModel);
-
+        underTest.displayAuthorsFromPage(1, mockModel);
         verify(mockStorage).findAuthorById(1);
-        verify(mockModel).addAttribute("authors", testAuthor);
+        verify(mockModel).addAttribute("author", testAuthor);
     }
 
     @Test
     public void shouldReturnViewNamedAuthorWhenDisplaySingleAuthorIsCalled() {
-        String viewName = underTest.displayAuthorFromPostPage(1, mockModel);
+        String viewName = underTest.displayAuthorsFromPage(1, mockModel);
         assertThat(viewName).isEqualTo("author");
     }
 
@@ -55,22 +53,18 @@ public class AuthorControllerTest {
     public void shouldGoToIndividualEndPoint() throws Exception {
         Author testAuthor = new Author("authors");
         when(mockStorage.findAuthorById(1)).thenReturn(testAuthor);
-
         mockMvc.perform(get("/author/1/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("author"))
-                .andExpect(model().attributeExists("authors"))
-                .andExpect(model().attribute("authors", testAuthor));
+                .andExpect(model().attributeExists("author"))
+                .andExpect(model().attribute("author", testAuthor));
     }
 
     @Test
     public void tagsEndPointShouldDisplayAllTags() throws Exception {
         Author testAuthor = new Author("user");
-
         List<Author> authorList = Collections.singletonList(testAuthor);
-
         when(mockStorage.getAll()).thenReturn(authorList);
-
         mockMvc.perform(get("/author/all-authors"))
                 .andDo(print())
                 .andExpect(status().isOk())

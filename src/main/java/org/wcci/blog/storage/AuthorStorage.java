@@ -10,6 +10,6 @@ public interface AuthorStorage {
 
     Collection<Author> getAll();
 
-    Author findAuthorById(long authorId);
+    Author findAuthorById(long id);
     Author findAuthorByName(String name);
 }

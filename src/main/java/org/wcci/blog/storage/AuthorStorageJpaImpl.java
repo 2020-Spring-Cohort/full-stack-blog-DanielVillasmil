@@ -7,20 +7,21 @@ import org.wcci.blog.storage.Repositories.AuthorRepo;
 import java.util.Collection;
 
 @Service
-public class AuthorsStorageJpaImpl implements AuthorStorage {
+public class AuthorStorageJpaImpl implements AuthorStorage {
+
     AuthorRepo authorRepo;
 
-    public AuthorsStorageJpaImpl(AuthorRepo authorRepo){
-        this.authorRepo = authorRepo;
+    public AuthorStorageJpaImpl(AuthorRepo authorRepo){
+        this.authorRepo =authorRepo;
     }
 
     @Override
     public void store(Author authorToStore) {
-        authorRepo.save(authorToStore);
 
     }
+
     @Override
-    public Collection<Author> getAll(){
+    public Collection<Author> getAll() {
         return (Collection<Author>) authorRepo.findAll();
     }
 
@@ -30,7 +31,11 @@ public class AuthorsStorageJpaImpl implements AuthorStorage {
     }
 
     @Override
-    public Author findAuthorByName(String name){
+    public Author findAuthorByName(String name) {
         return authorRepo.findByName(name).get();
     }
+
+
+
+
 }
