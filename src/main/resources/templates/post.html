@@ -10,7 +10,6 @@
     <a href="/">Home</a>
     <a href="/category/all-categories">Add a Category</a>
     <a href="/tag/allTags">Add a Tag</a>
-    <a href="/posts/all-posts">Add a Post!</a>
 </header>
 
 
@@ -32,7 +31,7 @@
     </div>
 
     <div th:each="author: ${post.author}" th:remove="tag">
-        <p><a th:text="${author.name}" th:href="@{'/author/' + ${author.name}}">Author</a></p>
+        <p><a th:text="${author.}" th:href="@{'/author/' + ${author.name}}">Author</a></p>
     </div>
 
     <div th:each="category: ${post.categories}" th:remove="tag">

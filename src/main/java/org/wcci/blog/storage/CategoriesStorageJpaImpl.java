@@ -25,6 +25,8 @@ import java.util.Collection;
             return (Collection<Category>) categoryRepository.findAll();
         }
 
+
+
         @Override
         public Category findCategoryById(long id) {
             return categoryRepository.findById(id).get();

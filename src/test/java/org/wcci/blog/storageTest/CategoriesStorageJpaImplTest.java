@@ -28,16 +28,16 @@ public class CategoriesStorageJpaImplTest {
     @Test
     public void shouldRetrieveSinglePostByName() {
         CategoryRepository mockRepo = mock(CategoryRepository.class);
-        Category testCategory1 = new Category("water");
-        Category testCategory2 = new Category("soda");
+        Category testCategory1 = new Category("SoftShell");
+        Category testCategory2 = new Category("HardShell");
         CategoryStorage underTest = new CategoriesStorageJpaImpl(mockRepo);
         underTest.store(testCategory1);
         underTest.store(testCategory2);
         Optional<Category> testCategory1Optional = Optional.of(testCategory1);
-        when(mockRepo.findCategoryByName("SoftShell")).thenReturn(testCategory1Optional);
+        when(mockRepo.findByName("SoftShell")).thenReturn(testCategory1Optional);
 
         Optional<Category> testCategory2Optional = Optional.of(testCategory2);
-        when(mockRepo.findCategoryByName("HardShell")).thenReturn(testCategory2Optional);
+        when(mockRepo.findByName("HardShell")).thenReturn(testCategory2Optional);
 
         Category retrievedCategory1 = underTest.findCategoryByName("SoftShell");
         Category retrievedCategory2 = underTest.findCategoryByName("HardShell");

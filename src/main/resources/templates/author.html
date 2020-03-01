@@ -5,12 +5,22 @@
     <title th:text="${author.id}">Authors</title>
 </head>
 
-<header class="container__header">
-    <a href="/">Home</a>
-    <a href="/category/all-categories">Add a Category</a>
-    <a href="/tag/allTags">Add a Tag</a>
-    <a href="/posts/all-posts">Add a Post!</a>
+<header>
+    <div class="indexBody">
+        <div class="nav__icon">
+            <a href="/index">Home</a>
+            <a href="/category">Categories</a>
+            <a href="/post">Post</a>
+            <a href="/tags">HashTags</a>
+
+        </div>
+    </div>
 </header>
+
+
+
+
+
 <body class="container">
 
     <div class="container__body">

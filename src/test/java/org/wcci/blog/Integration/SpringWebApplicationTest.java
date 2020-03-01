@@ -28,12 +28,12 @@ public class SpringWebApplicationTest {
     }
     @Test
     public void shouldReceiveOkFromAuthorsEndPoint() throws Exception{
-        mockMvc.perform(get("/authors/all-authors"))
+        mockMvc.perform(get("/author/all-authors"))
                 .andDo(print()).andExpect(status().isOk());
     }
     @Test
     public void shouldReceiveOkFromPostsEndPoint() throws Exception {
-        mockMvc.perform(get("/posts/all-posts"))
+        mockMvc.perform(get("/post/all-posts"))
                 .andDo(print()).andExpect(status().isOk());
     }
     @Test

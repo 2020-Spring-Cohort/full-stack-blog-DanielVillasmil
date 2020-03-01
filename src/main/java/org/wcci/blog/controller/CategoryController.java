@@ -23,8 +23,8 @@ public class CategoryController {
        return "category";
     }
     @PostMapping("add")
-    public String addCategory(@RequestParam String name){
-       categoryStorage.store(new Category(name));
+    public String addCategory(@RequestParam String categoryName){
+       categoryStorage.store(new Category (categoryName));
        return "redirect:/category/all-categories";
     }
     @GetMapping("all-categories")
