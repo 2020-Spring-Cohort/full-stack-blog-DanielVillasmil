@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/xhtml">>
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${post.title}">Post</title>
+</head>
+
+
+<header class="container__header">
+    <h3><a href="/">Home</a></h3>
+</header>
+
+
+<body class="container">
+<div class="container__nav">
+
+    <a href="/author/all-authors"> Add an Author</a>
+    <a href="/category/all-categories">Add a Category</a>
+    <a href="/tag/allTags">Add a Tag</a>
+
+</div>
+
+
+<div class="container__body">
+
+    <div class="container__body__info">
+        <h1>Post a anything!</h1>
+    </div>
+
+    <div th:text="${post.title}">
+        <h1>Title</h1>
+    </div>
+
+    <div th:text="${post.body}">
+        <h2>Body</h2>
+    </div>
+
+    <div th:each="author: ${post.author}" th:remove="tag">
+        <p><a th:text="${author.name}" th:href="@{'/author/' + ${author.name}}">Author</a></p>
+    </div>
+
+    <div th:each="category: ${post.categories}" th:remove="tag">
+        <p><a th:text="${category.name}" th:href="@{'/category/' + ${category.name}}">Category</a></p>
+    </div>
+
+    <div th:each="tag: ${post.tags}" th:remove="tag">
+        <p><a th:text="${tag.name}" th:href="@{'/tag/' + ${tag.id}}">Tags</a></p>
+    </div>
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+</body>
+</html>

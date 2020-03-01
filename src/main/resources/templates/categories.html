@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Category</title>
+</head>
+
+
+<header class="container__header">
+    <h3><a href="/">Home</a></h3>
+</header>
+
+
+
+<body class="container">
+    <div class="container__nav">
+        <a href="/author/all-authors">Add a Author</a>
+        <a href="/tag/allTags">Add a Tag</a>
+        <a href="/posts/all-posts">Add a Post!</a>
+    </div>
+
+
+    <div class="container__body">
+
+        <div class="container__body__info">
+            <h1> Categories</h1>
+        </div>
+
+        <div th:each="category:${categories}" th:remove="tag">
+            <a th:text="${category.name}" th:href="'/category' + ${category.id}"></a>
+        </div>
+
+        <form action="/category/add" method="post">
+            <input type="text" name="categoryName" placeholder="Category"/>
+            <button type="submit"> Add a Category</button>
+        </form>
+
+
+    </div>
+
+
+</body>
+
+</html>

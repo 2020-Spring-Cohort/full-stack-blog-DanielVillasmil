@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+</head>
+
+<header class="container__header">
+    <h3><a href="/">Home</a></h3>
+</header>
+
+
+<body class="container">
+<div class="container__nav">
+    <a href="/author/all-authors"> Add an Author</a>
+    <a href="/category/all-categories">Add a Category</a>
+    <a href="/tag/allTags">Add a Tag</a>
+</div>
+
+
+<div class="container__body">
+
+    <div class="container__body__info">
+        <h1>Post a anything!</h1>
+    </div>
+
+    <div class="container__body__selection">
+        <form method="post" action="/post/add">
+            <label for="author">
+                <select id= "author" name= "author">
+                    <option th:each="author: ${authors}" th:value="${author.id}" th:text="${author.name}"></option>
+                </select>
+            </label>
+
+            <label for="categories">
+                <select id="categories" name="category">
+                    <option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+                </select>
+            </label>
+
+            <label for="tags">
+                <select id="tags" name="tag">
+                    <option th:each="tag: ${tags}" th:value="${tag.id}" th:text="${tag.name}"></option>
+                </select>
+            </label> <br>
+
+            <input type="text" name="postTitle" placeholder="Post Title"/> <br>
+            <input type="text" name="postBody" placeholder="Post"/> <br>
+            <input type="submit" value="Add a post"/>
+
+        </form>
+
+    </div>
+
+    <div th:each="post:${posts}" th:remove="tag">
+        <a th:text="${post.title}" th:href="'/post/single-post' + ${post.id}"></a>
+    </div>
+
+
+
+</div>
+
+
+</div>
+
+</body>
+</html>

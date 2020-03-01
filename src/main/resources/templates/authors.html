@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/xhtml">>
+<head>
+    <meta charset="UTF-8">
+    <title>Author</title>
+</head>
+
+<header class="container__header">
+    <h3><a href="/">Home</a></h3>
+</header>
+<body class="container">
+        <div class="container__nav">
+            <a href="/category/all-categories">Add a Category</a>
+            <a href="/tag/allTags">Add a Tag</a>
+            <a href="/posts/all-posts">Add a Post!</a>
+        </div>
+
+<div class="container__body">
+    <div class="container__body__info">
+        <h1>Authors</h1>
+        <div th:each="author: ${authors}" th:remove="tag">
+            <a th:text="${author.id}" th:href="'/author/' + ${author.id}"></a>
+        </div>
+
+        <form action="/author/add" method="post">
+
+            <input type="text" name="authorName" placeholder="name"/>
+            <button type="submit"> Type your name</button>
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
