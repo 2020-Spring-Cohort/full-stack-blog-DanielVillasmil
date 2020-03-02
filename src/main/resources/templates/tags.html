@@ -12,7 +12,7 @@
 <header>
     <div>
         <h1 class="mainTitle">
-            Welcome to the Taco site!
+            Get Creative!
         </h1>
     </div>
     <div class="indexBody">
@@ -25,6 +25,7 @@
         </div>
     </div>
 </header>
+<hr>
 
 <body class="container">
 
@@ -34,15 +35,16 @@
 
         <h1>Tags</h1>
 
-        <form action="/tag/add" method="post">
-
-            <input type="text" name="tagName" placeholder="Tag"/>
-            <button type="submit"> Add a tag</button>
-
-        </form>
 
         <div th:each="tag : ${tags}" th:remove="tag">
             <a th:text="${tag.name}" th:href="'/tag//' + ${tag.id}"></a>
+        </div>
+
+           <div class="add__form">
+            <form action="/tag/add" method="post">
+                <input type="text" name="tagName" placeholder="Tag"><br>
+                <button type="submit"> Add tag</button>
+            </form>
         </div>
 
     </div>

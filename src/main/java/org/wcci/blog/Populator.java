@@ -33,8 +33,8 @@ public class Populator implements CommandLineRunner{
     public void run(String... args) {
 
 
-        Author ben = new Author("Ben Williams");
-        authorStorage.store(ben);
+        Author palpatine = new Author("Palpatine The Emperor");
+        authorStorage.store(palpatine);
 
         Author kenobi = new Author("Obi Wan Kenobi");
         authorStorage.store(kenobi);
@@ -47,7 +47,7 @@ public class Populator implements CommandLineRunner{
         categoryStorage.store(softShell);
 
 
-        Post carneAsada = new Post(ben, hardShell,"Carne Asada", "This is awesome!");
+        Post carneAsada = new Post(palpatine, hardShell,"Carne Asada", "This is awesome!");
         postStorage.store(carneAsada);
 
         Post beefTongue = new Post(kenobi,softShell,"Beef Tongue", "I absolutely love taking this from Anakin");

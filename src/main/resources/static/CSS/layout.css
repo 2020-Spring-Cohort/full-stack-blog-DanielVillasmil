@@ -6,7 +6,30 @@
     text-align: center;
     align-content: space-between;
 }
+.nav__icon a{
+    padding: 14px;
+}
 .container{
     text-align: center;
     align-content: space-between;
+}
+.container___body__info a{
+    padding: 14px;
+}
+.container__body a{
+    padding: 14px;
+}
+.add__form{
+    margin: 5px;
+    padding: 5px;
+}
+.indexBody{
+    margin: 5px;
+    padding: 5px;
+}
+h1{
+    margin: 20px;
+}
+a{
+    font-size: 20px;
 }

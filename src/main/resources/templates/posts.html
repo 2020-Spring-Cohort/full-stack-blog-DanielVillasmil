@@ -12,7 +12,7 @@
 <header>
     <div>
         <h1 class="mainTitle">
-            Welcome to the Taco site!
+            Taco Place
         </h1>
     </div>
     <div class="indexBody">
@@ -21,10 +21,10 @@
             <a href="/author/all-authors">Author</a>
             <a href="/category/all-categories">Categories</a>
             <a href="/tag/all-tags">HashTags</a>
-
         </div>
     </div>
 </header>
+<hr>
 
 <body class="container">
 
@@ -34,9 +34,10 @@
 
     <div class="container__body__info">
         <h1>Post a anything!</h1>
-    </div>
+
 
     <div class="container__body__selection">
+        <div class="add__form">
         <form method="post" action="/post/add">
             <label for="author">
                 <select id= "author" name= "author">
@@ -56,12 +57,13 @@
                 </select>
             </label> <br>
 
-            <input type="text" name="postTitle" placeholder="Post Title"/> <br>
-            <input type="text" name="postBody" placeholder="Post"/> <br>
-            <input type="submit" value="Add a post"/>
+                <input type="text" name="postTitle" placeholder="Post Title"/> <br>
+                <input type="text" name="postBody" placeholder="Post"/> <br>
+                <input type="submit" value="Add a post"/>
 
-        </form>
-
+            </form>
+        </div>
+    </div>
     </div>
 
     <div th:each="post:${posts}" th:remove="tag">

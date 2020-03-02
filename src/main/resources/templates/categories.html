@@ -13,7 +13,7 @@
 <header>
     <div>
         <h1 class="mainTitle">
-            Welcome to the Taco site!
+            All The Tacos
         </h1>
     </div>
     <div class="indexBody">
@@ -26,6 +26,7 @@
         </div>
     </div>
 </header>
+<hr>
 
 
 
@@ -35,19 +36,19 @@
     <div class="container__body">
 
         <div class="container__body__info">
-            <h1> Categories</h1>
+            <h1> More Tacos</h1>
         </div>
 
         <div th:each="category:${categories}" th:remove="tag">
             <a th:text="${category.name}" th:href="'/category' + ${category.id}"></a>
         </div>
 
-        <form action="/category/add" method="post">
-            <input type="text" name="categoryName" placeholder="Category"/>
-            <button type="submit"> Add a Category</button>
-        </form>
-
-
+        <div class="add__form">
+            <form action="/category/add" method="post">
+                <input type="text" name="categoryName" placeholder="Category"/>
+                <button type="submit"> Add a Category</button>
+            </form>
+        </div>
     </div>
 
 

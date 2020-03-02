@@ -10,7 +10,7 @@
 <header>
     <div>
         <h1 class="mainTitle">
-            Welcome to the Taco site!
+            All The Tacos!
         </h1>
     </div>
     <div class="indexBody">
@@ -22,6 +22,7 @@
         </div>
     </div>
 </header>
+<hr>
 
 
 <body class="container">
@@ -30,19 +31,17 @@
 <div class="container__body">
 
     <div class="container__body__info">
-        <h1> Category</h1>
+        <h1>Lets get some tacos!</h1>
+
+
+        <div th:text="${category.name}">
+            <h1>More Tacos</h1>
+        </div>
+        <div th:each="post: ${category.posts}">
+            <h2><a th:href="@{'/post/' + ${post.id}}">Post</a></h2>
+         </div>
+
     </div>
-
-    <div th:text="${category.name}"><h1>Categories</h1></div>
-    <div th:each="post: ${category.posts}" th:href="@{'/post/' + ${post.id}}"><h2>Post</h2></div>
-</div>
-
-    <form action="/category/add" method="post">
-        <input type="text" name="categoryName" placeholder="Category"/>
-        <button type="submit"> Add a Category</button>
-    </form>
-
-
 </div>
 
 </body>

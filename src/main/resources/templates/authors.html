@@ -8,6 +8,12 @@
 </head>
 
 <header>
+
+    <div>
+        <h1 class="mainTitle">
+            The Taco Guru
+        </h1>
+    </div>
     <div class="indexBody">
         <div class="nav__icon">
             <a href="/">Home</a>
@@ -18,6 +24,7 @@
         </div>
     </div>
 </header>
+<hr>
 
 
 
@@ -26,17 +33,17 @@
 
 <div class="container__body">
     <div class="container__body__info">
-        <h1>Authors</h1>
+        <h1>Taco Masters</h1>
         <div th:each="author: ${authors}" th:remove="tag">
             <a th:text="${author.name}" th:href="'/author/' + ${author.id}"></a>
         </div>
 
-        <form action="/author/add" method="post">
-
-            <input type="text" name="authorName" placeholder="name"/>
-            <button type="submit"> Type your name</button>
-
-        </form>
+        <div class="add__form">
+            <form action="/author/add" method="post">
+                <input type="text" name="authorName" placeholder="name"/>
+                <button type="submit"> Type your name</button>
+            </form>
+        </div>
     </div>
 </div>
 
